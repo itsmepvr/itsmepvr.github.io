@@ -1,7 +1,7 @@
 window.onload = function() {
     
     document.getElementById("input").defaultValue = "10";
-    function effect(){
+    function effect(){alert();
         $("#img").html("");
         val = $('input').val()
         if(val == 0){
