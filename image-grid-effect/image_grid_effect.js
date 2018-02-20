@@ -41,7 +41,7 @@ window.onload = function() {
     }
     
     $("button").click(function(){
-        $("#img").html("");
+        $("#main").html("");
         val = $('input').val()
         if(val == 0){
             imageToGrid(1);
