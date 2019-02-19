@@ -1,8 +1,10 @@
 window.onload = function() {
     
     document.getElementById("input").defaultValue = "10";
+    document.getElementById("inputWidth").defaultValue = "300";
+    document.getElementById("inputHeight").defaultValue = "300";
 
-    imageToGrid(10);  //run function with required size
+    imageToGrid(10, 300, 300);  //run function with required size
 
     function imageToGrid(size, canvasWidth, canvasHeight){
     
@@ -56,11 +58,13 @@ window.onload = function() {
     
     $("button").click(function(){
         $("#main").html("");
-        val = $('input').val()
-        if(val == 0){
-            imageToGrid(1);
+        var size = $('#input').val() || 1;
+        var width = $('#inputWidth').val() || 300;
+        var height = $('#inputHeight').val() || 300;
+        if(size <= 0){
+            size = 1;
         }
-        imageToGrid(val);
+        imageToGrid(size, width, height);
     })
     
 }
