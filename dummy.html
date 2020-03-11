@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <meta name="description" content="">
+   <meta name="author" content="">
+
+   <title>MathLab</title>
+
+   <!-- Bootstrap core CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">   
+
+   <style>
+      #mainBody {
+         width: 100vw;
+         height: 100vh;
+         overflow: hidden;
+         display: flex;
+         flex-direction: column;
+      }
+
+      .panelFlex {
+         padding: 10px;
+      }
+
+      .panelHeading {
+         background-color: #FF643E;
+         color: white;
+         box-shadow: 0 8px 6px -6px black;
+         z-index: 2;
+      }
+
+      .panelBody {
+         padding-top:30px;
+         flex-grow: 1;
+         background-color: ghostwhite;
+         overflow:auto;
+         font-weight:bold;
+         font-size:2vw;
+         line-height:2.5;
+         text-align:left;
+         padding-left:20%;
+      }
+
+      .panelFooter {
+         padding: 10px 40px 10px 40px;
+         background-color: #1D84F5;
+         color: white;
+         box-shadow: 0 -8px 4px -6px black;
+      }
+      .m-question{
+         display:inline-block;
+         width:auto;
+         padding:4px;
+         color:black;
+         color: #6A5DD1;
+         border-radius: 5px;
+         box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+         transition: all 0.3s cubic-bezier(.25,.8,.25,1);         
+      }
+      @media only screen and (max-width: 600px) {
+         .panelFlex{
+            padding:5px;
+         }
+         .panelBody{
+            font-size:3.5vw;
+            padding: 5px;
+            padding-top:30px;
+         }
+         .panelFooter{
+            padding: 5px;
+         }
+      }
+   </style>
+</head>
+
+<body class="text-center">
+
+   <div id='mainBody'>
+      <div class='panelFlex panelHeading'>
+         <h3>Math Lab</h3>
+      </div>
+      <div class='panelFlex panelBody'></div>
+      <div class='panelFlex panelFooter'>
+         <button class='btn btn-light' style='float:left'>Prev</button>
+         <button class='btn btn-light m-reload'>Reload</button>
+         <button class='btn btn-light' style='float:right'>Next</button>
+      </div>
+   </div>
+
+   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+   <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.1/math.min.js'></script>
+   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"></script>
+   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+   </script>
+
+   <script>
+
+      $(document).ready(function () {
+         train1();
+      })
+
+      function train1() {
+         var num1 = getRandomNumber(-10, 10);
+         var num2 = getRandomNumber(-10, 10);
+         var num3 = num1*num1;
+         var num4 = num2*num2;
+         var num5 = 2*num1*num2;
+         var num6 = num5 - num3 - num4;
+         num1 = parseNumber(num1);
+         num2 = parseNumber(num2);
+         num3 = parseNumber(num3);
+         num4 = parseNumber(num4);
+         num5 = parseNumber(num5);
+         num6 = parseNumber(num6);
+         var eq1 = katex.renderToString(`\\Rightarrow ${num3[0]}\\sec^{${2}}\\theta ${num4[1]}\\cosec^{${2}}\\theta ${num6[2]} = \\lparen ${num1[0]}\\tan\\theta ${num2[1]}\\cot\\theta \\rparen^{${2}}`);
+         var eq2 = katex.renderToString(`L.H.S = ${num3[0]}\\sec^{${2}}\\theta ${num4[1]}\\cosec^{${2}}\\theta ${num6[2]}`);
+         var eq3 = katex.renderToString(`L.H.S = ${num3[0]}\\lparen\\tan^{${2}}\\theta + 1\\rparen ${num4[1]}\\lparen\\cot^{${2}}\\theta + 1\\rparen ${num6[2]}`);
+         var eq4 = katex.renderToString(`L.H.S = ${num3[0]}\\tan^{${2}}\\theta ${num3[2]} ${num4[1]}\\cot^{${2}}\\theta ${num4[2]} ${num6[2]}`);
+         var eq5 = katex.renderToString(`L.H.S = ${num3[0]}\\tan^{${2}}\\theta ${num4[1]}\\cot^{${2}}\\theta ${num5[2]}`);
+         var eq6 = katex.renderToString(`L.H.S = \\lparen${num1[0]}\\tan\\theta\\rparen^{2} + \\lparen${num2[0]}\\cot\\theta\\rparen^{2} + \\lparen2 \\times ${num1[0]}\\tan\\theta \\times ${num2[0]}cot\\theta\\rparen`);
+         var eq7 = katex.renderToString(`L.H.S = \\lparen${num1[0]}\\tan\\theta ${num2[1]}\\cot\\theta\\rparen^{2}`);
+         var eq8 = katex.renderToString(`L.H.S = R.H.S`);
+         $(".panelBody").html(`<div class='m-question'>${eq1}</div><br>${eq2}<br>${eq3}<br>${eq4}<br>${eq5}<br>${eq6}<br>${eq7}<br>${eq8}`);
+
+
+         $(".m-reload").click(function(){
+            train1();
+         })
+
+      }
+
+      function getRandomNumber(min, max){
+         return Math.floor(Math.random() * (max - min) + min);
+      }
+
+      function parseNumber(xInt){
+         // format => [first string, second string, constant with sign, constant, sign]
+         if(xInt == 0){
+            return ['', '', '', 0, '+'];
+         }else if(xInt > 0){
+            if(xInt == 1){
+               return ['', '+ ', '+ 1', 1, '+'];
+            }else{
+               return [xInt, '+ '+xInt, '+ '+xInt, xInt, '+'];
+            }
+         }else if(xInt < 0){
+            if(xInt == -1){
+               return ['-', '- ', '- 1', -1, '-'];
+            }else {
+               return [xInt, '- '+eval(-(xInt)), '- '+eval(-(xInt)), xInt, '-'];
+            }
+         }
+      }
+
+   </script>
+
+</body>
+
+</html>
