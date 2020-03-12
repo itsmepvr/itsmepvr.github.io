@@ -211,7 +211,7 @@
          num5 = parseNumber(num5);
          num6 = parseNumber(num6);
          // Method - 1
-         var eq1 = katex.renderToString(`${num3[0]}\\sec^{${2}}\\theta ${num4[1]}\\cosec^{${2}}\\theta ${num6[2]} = \\lparen ${num1[0]}\\tan\\theta ${num2[1]}\\cot\\theta \\rparen^{${2}}`);
+         var eq1 = katex.renderToString(`Q: ${num3[0]}\\sec^{${2}}\\theta ${num4[1]}\\cosec^{${2}}\\theta ${num6[2]} = \\lparen ${num1[0]}\\tan\\theta ${num2[1]}\\cot\\theta \\rparen^{${2}}`);
          var eq2 = katex.renderToString(`L.H.S = ${num3[0]}\\sec^{${2}}\\theta ${num4[1]}\\cosec^{${2}}\\theta ${num6[2]}`);
          var eq3_1 = katex.renderToString(`L.H.S = ${num3[0]}\\lparen`);
          var eq3_2 = katex.renderToString(`\\tan^{${2}}\\theta + 1`);
@@ -223,7 +223,7 @@
          var eq6 = katex.renderToString(`L.H.S = \\lparen${num1[0]}\\tan\\theta\\rparen^{2} + \\lparen${num2[0]}\\cot\\theta\\rparen^{2} + \\lparen2 \\times ${num1[0]}\\tan\\theta \\times ${num2[0]}cot\\theta\\rparen`);
          var eq7 = katex.renderToString(`L.H.S = \\lparen${num1[0]}\\tan\\theta ${num2[1]}\\cot\\theta\\rparen^{2}`);
          var eq8 = katex.renderToString(`L.H.S = R.H.S`);
-         $(".m-card").html(`<div class='m-question'><strong>Q: </strong>${eq1}</div><hr>${eq2}<br>${eq3_1}<span class='m-highlight'>${eq3_2}</span>${eq3_3}<span class='m-highlight'>${eq3_4}</span>${eq3_5}<br>${eq4}<br>${eq5}<br>${eq6}<br>${eq7}<br>${eq8}`);
+         $(".m-card").html(`<div class='m-question'>${eq1}</div><hr>${eq2}<br>${eq3_1}<span class='m-highlight'>${eq3_2}</span>${eq3_3}<span class='m-highlight'>${eq3_4}</span>${eq3_5}<br>${eq4}<br>${eq5}<br>${eq6}<br>${eq7}<br>${eq8}`);
          $(".m-reload").unbind('click').click(function () {
             train1();
          })
