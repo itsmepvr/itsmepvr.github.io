@@ -77,11 +77,7 @@
          background-color: #3AAEF0;
          color: #fff;
          padding: 10px;
-      }
-
-      .m-question .katex {
-         font-weight: bold;
-         font-family: 'Roboto Mono', monospace;
+         line-height:2;
       }
 
       .m-answer {
@@ -90,19 +86,33 @@
          display: flex;
          flex-direction: row;
       }
+      .m-table {
+         width:100%;
+         border-spacing: 0;
+         border-collapse: collapse;
+         overflow-y:auto;
+      }
+
+      .m-table tr:nth-child(odd){
+         background-color: #eee;
+      }
 
       .m-flex-item {
-         flex-grow: 1;
-         flex-shrink: 1;
-         flex-basis: auto;
-         transition: .5s;
+         line-height:2;
+         padding:15px;
+         text-align:left;
+         transition: all .5s;
+         border-bottom: 1px solid gray;
+      }
+      .m-lhs{
+         border-right:2px solid gray;
       }
 
       .m-flex-item-h {
          position: sticky;
          top: 0;
          z-index: 2;
-         box-shadow: 0 8px 4px -5px #777;
+         box-shadow: 0 5px 5px -3px #777;
          background-color: #F0707A;
          color: #fff;
          border-right: 2px solid gray;
@@ -117,22 +127,6 @@
          cursor: pointer;
       }
 
-      .m-equations {
-         text-align: left;
-      }
-
-      .m-lhs-equations {
-         border-right: 2px solid gray;
-      }
-
-      .m-equations li {
-         border-bottom: 1px solid #ccc;
-      }
-
-      .m-equations li:nth-child(even) {
-         background-color: #eee;
-      }
-
       .m-highlight {
          background-color: #FEDD2A;
          padding: 5px 5px;
@@ -143,9 +137,12 @@
          .panelBody {
             padding-bottom: 5px;
          }
-
          .m-card {
-            font-size: 5vw;
+            font-size: 4vw;
+            border-radius: 0;
+         }
+         .m-flex-item{
+            padding:10px;
          }
       }
    </style>
@@ -191,28 +188,31 @@
          <div class='m-card'>
             <div class='m-question'>This is the question This is the question This is the question</div>
             <div class='m-answer'>
-               <div class='m-flex-item m-lhs'>
-                  <div class='m-flex-item-h m-lhs-h'>
-                     <div class='float-left m-flex-item-collapse m-lhs-collapse' data-toggle="tooltip"
-                        title='Hide L.H.S'>&#11164;</div>L.H.S<div class='float-right m-flex-item-expand m-lhs-expand'
-                        style='display: none;' data-toggle="tooltip" title='Show R.H.S'><span
-                           class='badge badge-warning'>R.H.S</span></div>
-                  </div>
-                  <div class='m-lhs-equations m-equations'></div>
-               </div>
-               <div class='m-flex-item m-rhs'>
-                  <div class='m-flex-item-h m-lhs-h'>
-                     <div class='float-left m-flex-item-expand m-rhs-expand' style='display: none;'
-                        data-toggle="tooltip" title='Show L.H.S'><span class='badge badge-warning'>L.H.S</span></div>R.H.S
-                     <div class='float-right m-flex-item-collapse m-rhs-collapse' data-toggle="tooltip"
-                        title='Hide R.H.S'>&#11166;</div>
-                  </div>
-                  <div class='m-rhs-equations m-equations'></div>
-               </div>
+               <table class='m-table'>
+                  <tr>
+                     <th class='m-flex-item-h m-lhs-h m-flex-lhs'>
+                        <div class='float-left m-flex-item-collapse m-lhs-collapse' data-toggle="tooltip"
+                           title='Hide L.H.S'>&#11164;</div>L.H.S<div
+                           class='float-right m-flex-item-expand m-lhs-expand' style='display: none;'
+                           data-toggle="tooltip" title='Show R.H.S'><span class='badge badge-warning'>R.H.S</span></div>
+                     </th>
+                     <th class='m-flex-item-h m-rhs-h m-flex-rhs'>
+                        <div class='float-left m-flex-item-expand m-rhs-expand' style='display: none;'
+                           data-toggle="tooltip" title='Show L.H.S'><span class='badge badge-warning'>L.H.S</span></div>
+                        R.H.S
+                        <div class='float-right m-flex-item-collapse m-rhs-collapse' data-toggle="tooltip"
+                           title='Hide R.H.S'>&#11166;</div>
+                     </th>
+                  </tr>
+               </table>
             </div>
          </div>
       </div>
-      <div class='panelFooter'>sdsad</div>
+      <div class='panelFooter'>
+         <buttons class='btn btn-primary disabled float-left m-1'>Prev</buttons>
+         <buttons class='btn btn-primary m-1 m-reload'>Reload</buttons>
+         <buttons class='btn btn-primary disabled float-right m-1'>Next</buttons>
+      </div>
    </div>
 
 
@@ -233,56 +233,60 @@
          var windowHeight = $(window).height();
          var windowWidth = $(window).width();
          $('body').css({ "height": windowHeight + "px" });
-         var level = 1;
+         var level = 3;
          $(".dropdown-item").click(function(){
             level = $(this).attr('data-level');
             train1(level);
          });
          train1(level);
+         resizeCard();
+      });
+
+      function resizeCard(){
+         var windowWidth = $(window).width();
          if (windowWidth < 700) {
-            $(".m-rhs").css({ "height": "0px", "overflow-y": "hidden", "flex-grow": "0", "width": "0" });
+            $(".m-flex-rhs").hide();
             $(".m-lhs-expand").show(0);
             $(".m-lhs-collapse").hide(0);
             $(".m-rhs-expand").click(function () {
-               $(".m-lhs").css({ "height": "auto", "overflow-y": "", "flex-grow": "1", "width": "auto" });
+               $(".m-flex-lhs").show();
                $(".m-rhs-expand").hide(0);
                $(".m-rhs-collapse").show(0);
-               $(".m-rhs").css({ "height": "0px", "overflow-y": "hidden", "flex-grow": "0", "width": "0" });
+               $(".m-flex-rhs").hide();
                $(".m-lhs-expand").show(0);
                $(".m-lhs-collapse").hide(0);
             });
             $(".m-lhs-expand").click(function () {
-               $(".m-rhs").css({ "height": "auto", "overflow-y": "", "flex-grow": "1", "width": "auto" });
+               $(".m-flex-rhs").show();
                $(".m-lhs-expand").hide(0);
                $(".m-lhs-collapse").show(0);
-               $(".m-lhs").css({ "height": "0px", "overflow-y": "hidden", "flex-grow": "0", "width": "0px" });
+               $(".m-flex-lhs").hide();
                $(".m-rhs-expand").show(0);
                $(".m-rhs-collapse").hide(0);
             });
          } else {
             $(".m-lhs-collapse").click(function () {
-               $(".m-lhs").css({ "height": "0px", "overflow-y": "hidden", "flex-grow": "0", "width": "0px" });
+               $(".m-flex-lhs").hide();
                $(".m-rhs-expand").show(0);
                $(".m-rhs-collapse").hide(0);
             });
             $(".m-rhs-expand").click(function () {
-               $(".m-lhs").css({ "height": "auto", "overflow-y": "", "flex-grow": "1", "width": "auto" });
+               $(".m-flex-lhs").show();
                $(".m-rhs-expand").hide(0);
                $(".m-rhs-collapse").show(0);
             });
             $(".m-rhs-collapse").click(function () {
-               $(".m-rhs").css({ "height": "0px", "overflow-y": "hidden", "flex-grow": "0", "width": "0" });
+               $(".m-flex-rhs").hide();
                $(".m-lhs-expand").show(0);
                $(".m-lhs-collapse").hide(0);
             });
             $(".m-lhs-expand").click(function () {
-               $(".m-rhs").css({ "height": "auto", "overflow-y": "", "flex-grow": "1", "width": "auto" });
+               $(".m-flex-rhs").show();
                $(".m-lhs-expand").hide(0);
                $(".m-lhs-collapse").show(0);
             });
          }
-
-      });
+      }
 
       function train1(level) {
          var num7 = [];
@@ -323,7 +327,7 @@
          num5 = parseNumber(num5);
          num6 = parseNumber(num6);
          // Method - 1
-         var eq1 = katex.renderToString(`Q:Prove \\space that \\space ${num3[0]}\\sec^{${2}}${num7[0]} ${num4[1]}\\cosec^{${2}}${num7[0]} ${num6[2]} = \\lparen ${num1[0]}\\tan${num7[0]} ${num2[1]}\\cot${num7[0]} \\rparen^{${2}}`);
+         var eq1 = katex.renderToString(`Q:Prove \\space that \\space\\space ${num3[0]}\\sec^{${2}}${num7[0]} ${num4[1]}\\cosec^{${2}}${num7[0]} ${num6[2]} = \\lparen ${num1[0]}\\tan${num7[0]} ${num2[1]}\\cot${num7[0]} \\rparen^{${2}}`);
          $(".m-question").html(eq1);
          var eq2 = katex.renderToString(`\\rightarrow ${num3[0]}\\sec^{${2}}${num7[0]} ${num4[1]}\\cosec^{${2}}${num7[0]} ${num6[2]}`);
          var eq3_1 = katex.renderToString(`\\rightarrow ${num3[0]}\\lparen`);
@@ -334,12 +338,45 @@
          var eq4 = katex.renderToString(`\\rightarrow ${num3[0]}\\tan^{${2}}${num7[0]} ${num3[2]} ${num4[1]}\\cot^{${2}}${num7[0]} ${num4[2]} ${num6[2]}`);
          var eq5 = katex.renderToString(`\\rightarrow ${num3[0]}\\tan^{${2}}${num7[0]} ${num4[1]}\\cot^{${2}}${num7[0]} ${num5[2]}`);
          var eq6 = katex.renderToString(`\\rightarrow \\lparen${num1[0]}\\tan${num7[0]}\\rparen^{2} + \\lparen${num2[0]}\\cot${num7[0]}\\rparen^{2} + \\lparen2 \\times ${num1[0]}\\tan${num7[0]} \\times ${num2[0]}cot${num7[0]}\\rparen`);
+         var eq6_1 = katex.renderToString(`\\rightarrow \\lparen`);
+         var eq6_2 = katex.renderToString(`${num1[0]}\\tan${num7[0]}`);
+         var eq6_3 = katex.renderToString(`\\rparen^{2} + \\lparen`);
+         var eq6_4 = katex.renderToString(`${num2[0]}\\cot${num7[0]}`);
+         var eq6_5 = katex.renderToString(`\\rparen^{2} + \\lparen`);
+         var eq6_6 = katex.renderToString(`2 \\times ${num1[0]}\\tan${num7[0]} \\times ${num2[0]}cot${num7[0]}`);
+         var eq6_7 = katex.renderToString(`\\rparen`);
          var eq7 = katex.renderToString(`\\rightarrow \\lparen${num1[0]}\\tan${num7[0]} ${num2[1]}\\cot${num7[0]}\\rparen^{2}`);
          var eq8 = katex.renderToString(`= \\lparen${num1[0]}\\tan${num7[0]} ${num2[1]}\\cot${num7[0]}\\rparen^{2}`);
-         $(".m-lhs-equations").html(`<ul class='list-group list-group-flush'><li class="list-group-item">${eq2}</li><li class="list-group-item">${eq3_1}<span class='m-highlight'>${eq3_2}</span>${eq3_3}<span class='m-highlight'>${eq3_4}</span>${eq3_5}</li><li class="list-group-item">${eq4}</li><li class="list-group-item">${eq5}</li><li class="list-group-item">${eq6}</li><li class="list-group-item">${eq7}</li></ul>`);
-         $(".m-rhs-equations").html(`<ul class='list-group list-group-flush'><li class="list-group-item">${eq8}</li><li class="list-group-item">${eq8}</li><li class="list-group-item">${eq8}</li><li class="list-group-item">${eq8}</li><li class="list-group-item">${eq8}</li><li class="list-group-item">${eq8}</li></ul>`);
+         $(".m-table").find('tr:not(first-child)').slice(1).remove();
+         $(".m-table").append(`
+                  <tr>
+                     <td class='m-lhs m-flex-lhs m-flex-item'>${eq2}</td>
+                     <td class='m-rhs m-flex-rhs m-flex-item'>${eq8}</td>
+                  </tr>
+                  <tr>
+                     <td class='m-lhs m-flex-lhs m-flex-item'>${eq3_1}<span class='m-highlight'>${eq3_2}</span>${eq3_3}<span class='m-highlight'>${eq3_4}</span>${eq3_5}</td>
+                     <td class='m-rhs m-flex-rhs m-flex-item'>${eq8}</td>
+                  </tr>
+                  <tr>
+                     <td class='m-lhs m-flex-lhs m-flex-item'>${eq4}</td>
+                     <td class='m-rhs m-flex-rhs m-flex-item'>${eq8}</td>
+                  </tr>
+                  <tr>
+                     <td class='m-lhs m-flex-lhs m-flex-item'>${eq5}</td>
+                     <td class='m-rhs m-flex-rhs m-flex-item'>${eq8}</td>
+                  </tr>
+                  <tr>
+                     <td class='m-lhs m-flex-lhs m-flex-item'>${eq6_1}<span class='m-highlight'>${eq6_2}</span>${eq6_3}<span class='m-highlight'>${eq6_4}</span>${eq6_5}<span class='m-highlight'>${eq6_6}</span>${eq6_7}</td>
+                     <td class='m-rhs m-flex-rhs m-flex-item'>${eq8}</td>
+                  </tr>
+                  <tr>
+                     <td class='m-lhs m-flex-lhs m-flex-item'>${eq7}</td>
+                     <td class='m-rhs m-flex-rhs m-flex-item'>${eq8}</td>
+                  </tr>
+                  `);
          $(".m-reload").unbind('click').click(function () {
             train1(level);
+            resizeCard();
          })
       }
 
