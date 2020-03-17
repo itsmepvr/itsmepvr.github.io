@@ -12,12 +12,13 @@
    <!-- Bootstrap core CSS -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
 
    <style>
       body {
-         width:100%;
-         padding:0;
-         margin:0;
+         width: 100%;
+         padding: 0;
+         margin: 0;
          overflow: hidden;
       }
 
@@ -38,147 +39,182 @@
          background: #cccccc;
       }
 
-      #mainBody {
+      .mainBody {
          width: 100%;
          height: 100%;
-         overflow: hidden;
          display: flex;
          flex-direction: column;
       }
 
-      .panelFlex {
-         padding: 10px;
-      }
-
-      .panelHeading {
-         background-color: #F05635;
-         color: white;
-         font-weight: bold;
-         box-shadow: 0 8px 6px -6px black;
-         z-index: 2;
-      }
-
       .panelBody {
+         width: 100%;
+         height: 100%;
          flex-grow: 1;
-         background-color: #eee;
+         background-color: #F3F7FC;
          overflow: hidden;
          display: flex;
          align-items: center;
          justify-content: center;
-      }
-
-      .panelFooter {
-         padding: 10px 40px 10px 40px;
-         background-color: #1D84F5;
-         color: white;
-         box-shadow: 0 -8px 4px -6px black;
+         padding-bottom: 20px;
       }
 
       .m-card {
          max-width: 100%;
          max-height: 100%;
-         overflow: auto;
-         background-color: white;
-         padding: 10px;
-         width: auto;
+         display: flex;
+         flex-direction: column;
+         overflow-y: auto;
+         background-color: #fff;
          border-radius: 5px;
          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-         transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-         -webkit-transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-         text-align: left;
-         line-height: 2;
          font-size: 2vw;
+         font-weight: bold;
       }
 
       .m-question {
-         display: inline-block;
-         width: auto;
-         padding: 4px;
-         color: black;
-         color: #6A5DD1;
-         border-radius: 5px;
+         text-align: left;
+         font-family: 'Baloo Chettan 2', cursive;
+         background-color: #3AAEF0;
+         color: #fff;
+         padding: 10px;
+      }
+
+      .m-question .katex {
+         font-weight: bold;
+         font-family: 'Roboto Mono', monospace;
+      }
+
+      .m-answer {
+         max-height: 100%;
+         overflow-y: auto;
+         display: flex;
+         flex-direction: row;
+      }
+
+      .m-flex-item {
+         flex-grow: 1;
+         flex-shrink: 1;
+         flex-basis: auto;
+         transition: .5s;
+      }
+
+      .m-flex-item-h {
+         position: sticky;
+         top: 0;
+         z-index: 2;
+         box-shadow: 0 8px 4px -5px #777;
+         background-color: #F0707A;
+         color: #fff;
+         border-right: 2px solid gray;
+      }
+
+      .m-flex-item-collapse {
+         cursor: pointer;
+         padding: 0 3px;
+      }
+
+      .m-flex-item-expand {
+         cursor: pointer;
+      }
+
+      .m-equations {
+         text-align: left;
+      }
+
+      .m-lhs-equations {
+         border-right: 2px solid gray;
+      }
+
+      .m-equations li {
+         border-bottom: 1px solid #ccc;
+      }
+
+      .m-equations li:nth-child(even) {
+         background-color: #eee;
       }
 
       .m-highlight {
-         padding: 4px;
-         background-color: #FEDD1D;
+         background-color: #FEDD2A;
+         padding: 5px 5px;
          border-radius: 5px;
       }
 
-      .tilt-in-top-1 {
-         -webkit-animation: tilt-in-top-1 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-         animation: tilt-in-top-1 0.6s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-      }
-
-      @-webkit-keyframes tilt-in-top-1 {
-         0% {
-            -webkit-transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
-            transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
-            opacity: 0;
-         }
-
-         100% {
-            -webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
-            transform: rotateY(0deg) translateY(0) skewY(0deg);
-            opacity: 1;
-         }
-      }
-
-      @keyframes tilt-in-top-1 {
-         0% {
-            -webkit-transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
-            transform: rotateY(30deg) translateY(-300px) skewY(-30deg);
-            opacity: 0;
-         }
-
-         100% {
-            -webkit-transform: rotateY(0deg) translateY(0) skewY(0deg);
-            transform: rotateY(0deg) translateY(0) skewY(0deg);
-            opacity: 1;
-         }
-      }
-
-
       @media only screen and (max-width: 600px) {
-         .panelFlex {
-            padding: 5px;
-         }
-
          .panelBody {
-            padding: 0;
-         }
-
-         .panelFooter {
-            padding: 5px;
+            padding-bottom: 5px;
          }
 
          .m-card {
-            padding:4px;
-            padding-top:10px;
-            width: 100%;
-            font-size: 4vw;
-            height: 100%;
-            border-radius: 0;
+            font-size: 5vw;
          }
       }
    </style>
 </head>
 
 <body class="text-center">
+   <div class='mainBody'>
+      <div class='panelHeading'>
+         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style='text-align: left;'>
+            <a class="navbar-brand" href="#">Cognitive Math Lab</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
 
-   <div id='mainBody'>
-      <div class='panelFlex panelHeading'>
-         <h3>Math Lab</h3>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Trigonometric Identities</a>
+                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Trigonometric Identities</a>
+                     </div>
+                  </li>
+               </ul>
+               <ul class="navbar-nav mr-5">
+                  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Level 1</a>
+                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#" data-level='1'>Level 1</a>
+                        <a class="dropdown-item" href="#" data-level='2'>Level 2</a>
+                        <a class="dropdown-item" href="#" data-level='3'>Level 3</a>
+                        <a class="dropdown-item" href="#" data-level='4'>Level 4</a>
+                        <a class="dropdown-item" href="#" data-level='5'>Level 5</a>
+                     </div>
+                  </li>
+               </ul>
+            </div>
+         </nav>
       </div>
-      <div class='panelFlex panelBody'>
-         <div class='m-card'></div>
+      <div class='panelBody'>
+         <div class='m-card'>
+            <div class='m-question'>This is the question This is the question This is the question</div>
+            <div class='m-answer'>
+               <div class='m-flex-item m-lhs'>
+                  <div class='m-flex-item-h m-lhs-h'>
+                     <div class='float-left m-flex-item-collapse m-lhs-collapse' data-toggle="tooltip"
+                        title='Hide L.H.S'>&#11164;</div>L.H.S<div class='float-right m-flex-item-expand m-lhs-expand'
+                        style='display: none;' data-toggle="tooltip" title='Show R.H.S'><span
+                           class='badge badge-warning'>R.H.S</span></div>
+                  </div>
+                  <div class='m-lhs-equations m-equations'></div>
+               </div>
+               <div class='m-flex-item m-rhs'>
+                  <div class='m-flex-item-h m-lhs-h'>
+                     <div class='float-left m-flex-item-expand m-rhs-expand' style='display: none;'
+                        data-toggle="tooltip" title='Show L.H.S'><span class='badge badge-warning'>L.H.S</span></div>R.H.S
+                     <div class='float-right m-flex-item-collapse m-rhs-collapse' data-toggle="tooltip"
+                        title='Hide R.H.S'>&#11166;</div>
+                  </div>
+                  <div class='m-rhs-equations m-equations'></div>
+               </div>
+            </div>
+         </div>
       </div>
-      <div class='panelFlex panelFooter'>
-         <button type='button' class='btn btn-light disabled' style='float:left'>Prev</button>
-         <button type='button' class='btn btn-light m-reload'>Reload</button>
-         <button type='button' class='btn btn-light disabled' style='float:right'>Next</button>
-      </div>
+      <div class='panelFooter'>sdsad</div>
    </div>
+
 
    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -190,16 +226,92 @@
    </script>
 
    <script>
+      "use strict";
+      console.log('App running in strict mode.');
 
       $(document).ready(function () {
          var windowHeight = $(window).height();
-         $('#mainBody').css({"height": windowHeight+"px"});
-         train1();
-      })
+         var windowWidth = $(window).width();
+         $('body').css({ "height": windowHeight + "px" });
+         var level = 1;
+         $(".dropdown-item").click(function(){
+            level = $(this).attr('data-level');
+            train1(level);
+         });
+         train1(level);
+         if (windowWidth < 700) {
+            $(".m-rhs").css({ "height": "0px", "overflow-y": "hidden", "flex-grow": "0", "width": "0" });
+            $(".m-lhs-expand").show(0);
+            $(".m-lhs-collapse").hide(0);
+            $(".m-rhs-expand").click(function () {
+               $(".m-lhs").css({ "height": "auto", "overflow-y": "", "flex-grow": "1", "width": "auto" });
+               $(".m-rhs-expand").hide(0);
+               $(".m-rhs-collapse").show(0);
+               $(".m-rhs").css({ "height": "0px", "overflow-y": "hidden", "flex-grow": "0", "width": "0" });
+               $(".m-lhs-expand").show(0);
+               $(".m-lhs-collapse").hide(0);
+            });
+            $(".m-lhs-expand").click(function () {
+               $(".m-rhs").css({ "height": "auto", "overflow-y": "", "flex-grow": "1", "width": "auto" });
+               $(".m-lhs-expand").hide(0);
+               $(".m-lhs-collapse").show(0);
+               $(".m-lhs").css({ "height": "0px", "overflow-y": "hidden", "flex-grow": "0", "width": "0px" });
+               $(".m-rhs-expand").show(0);
+               $(".m-rhs-collapse").hide(0);
+            });
+         } else {
+            $(".m-lhs-collapse").click(function () {
+               $(".m-lhs").css({ "height": "0px", "overflow-y": "hidden", "flex-grow": "0", "width": "0px" });
+               $(".m-rhs-expand").show(0);
+               $(".m-rhs-collapse").hide(0);
+            });
+            $(".m-rhs-expand").click(function () {
+               $(".m-lhs").css({ "height": "auto", "overflow-y": "", "flex-grow": "1", "width": "auto" });
+               $(".m-rhs-expand").hide(0);
+               $(".m-rhs-collapse").show(0);
+            });
+            $(".m-rhs-collapse").click(function () {
+               $(".m-rhs").css({ "height": "0px", "overflow-y": "hidden", "flex-grow": "0", "width": "0" });
+               $(".m-lhs-expand").show(0);
+               $(".m-lhs-collapse").hide(0);
+            });
+            $(".m-lhs-expand").click(function () {
+               $(".m-rhs").css({ "height": "auto", "overflow-y": "", "flex-grow": "1", "width": "auto" });
+               $(".m-lhs-expand").hide(0);
+               $(".m-lhs-collapse").show(0);
+            });
+         }
 
-      function train1() {
-         var num1 = getRandomNumber(-10, 10);
-         var num2 = getRandomNumber(-10, 10);
+      });
+
+      function train1(level) {
+         var num7 = [];
+         if (level == 1) {
+            var num1 = 1;
+            var num2 = 1;
+            num7[0] = '\\theta';
+         } else if (level == 2) {
+            var num1 = getRandomNumber(-10, 10);
+            var num2 = getRandomNumber(-10, 10);
+            num7[0] = '\\theta';
+         } else if (level == 3) {
+            var num1 = getRandomNumber(-10, 10);
+            var num2 = getRandomNumber(-10, 10);
+            var num7 = parseNumber(getRandomNumber(1, 10));
+            num7[0] = num7[0] + '\\theta';
+         } else if (level == 4) {
+            var num1 = getRandomNumber(-10, 10);
+            var num2 = getRandomNumber(-10, 10);
+            var num7 = parseNumber(getRandomNumber(1, 90));
+            num7[0] = num7[0] + "\\degree";
+         } else if (level == 5) {
+            var num1 = getRandomNumber(-10, 10);
+            var num2 = getRandomNumber(-10, 10);
+            var num7 = parseNumber(getRandomNumber(1, 90));
+            var constantVariables = ["a", "b", "c", "m", "n", "p", "q", "α", "β", "γ", "δ", "Δ", "Φ", "Ω", "Ψ"];
+            constantVariables = getRandom(constantVariables, 1);
+            num7[0] = "\\lparen" + num7[0] + constantVariables + "\\rparen";
+         }
          var num3 = num1 * num1;
          var num4 = num2 * num2;
          var num5 = 2 * num1 * num2;
@@ -211,21 +323,95 @@
          num5 = parseNumber(num5);
          num6 = parseNumber(num6);
          // Method - 1
-         var eq1 = katex.renderToString(`Q: ${num3[0]}\\sec^{${2}}\\theta ${num4[1]}\\cosec^{${2}}\\theta ${num6[2]} = \\lparen ${num1[0]}\\tan\\theta ${num2[1]}\\cot\\theta \\rparen^{${2}}`);
-         var eq2 = katex.renderToString(`L.H.S = ${num3[0]}\\sec^{${2}}\\theta ${num4[1]}\\cosec^{${2}}\\theta ${num6[2]}`);
-         var eq3_1 = katex.renderToString(`L.H.S = ${num3[0]}\\lparen`);
-         var eq3_2 = katex.renderToString(`\\tan^{${2}}\\theta + 1`);
+         var eq1 = katex.renderToString(`Q:Prove \\space that \\space ${num3[0]}\\sec^{${2}}${num7[0]} ${num4[1]}\\cosec^{${2}}${num7[0]} ${num6[2]} = \\lparen ${num1[0]}\\tan${num7[0]} ${num2[1]}\\cot${num7[0]} \\rparen^{${2}}`);
+         $(".m-question").html(eq1);
+         var eq2 = katex.renderToString(`\\rightarrow ${num3[0]}\\sec^{${2}}${num7[0]} ${num4[1]}\\cosec^{${2}}${num7[0]} ${num6[2]}`);
+         var eq3_1 = katex.renderToString(`\\rightarrow ${num3[0]}\\lparen`);
+         var eq3_2 = katex.renderToString(`\\tan^{${2}}${num7[0]} + 1`);
          var eq3_3 = katex.renderToString(`\\rparen${num4[1]}\\lparen`);
-         var eq3_4 = katex.renderToString(`\\cot^{${2}}\\theta + 1`);
+         var eq3_4 = katex.renderToString(`\\cot^{${2}}${num7[0]} + 1`);
          var eq3_5 = katex.renderToString(`\\rparen${num6[2]}`);
-         var eq4 = katex.renderToString(`L.H.S = ${num3[0]}\\tan^{${2}}\\theta ${num3[2]} ${num4[1]}\\cot^{${2}}\\theta ${num4[2]} ${num6[2]}`);
-         var eq5 = katex.renderToString(`L.H.S = ${num3[0]}\\tan^{${2}}\\theta ${num4[1]}\\cot^{${2}}\\theta ${num5[2]}`);
-         var eq6 = katex.renderToString(`L.H.S = \\lparen${num1[0]}\\tan\\theta\\rparen^{2} + \\lparen${num2[0]}\\cot\\theta\\rparen^{2} + \\lparen2 \\times ${num1[0]}\\tan\\theta \\times ${num2[0]}cot\\theta\\rparen`);
-         var eq7 = katex.renderToString(`L.H.S = \\lparen${num1[0]}\\tan\\theta ${num2[1]}\\cot\\theta\\rparen^{2}`);
+         var eq4 = katex.renderToString(`\\rightarrow ${num3[0]}\\tan^{${2}}${num7[0]} ${num3[2]} ${num4[1]}\\cot^{${2}}${num7[0]} ${num4[2]} ${num6[2]}`);
+         var eq5 = katex.renderToString(`\\rightarrow ${num3[0]}\\tan^{${2}}${num7[0]} ${num4[1]}\\cot^{${2}}${num7[0]} ${num5[2]}`);
+         var eq6 = katex.renderToString(`\\rightarrow \\lparen${num1[0]}\\tan${num7[0]}\\rparen^{2} + \\lparen${num2[0]}\\cot${num7[0]}\\rparen^{2} + \\lparen2 \\times ${num1[0]}\\tan${num7[0]} \\times ${num2[0]}cot${num7[0]}\\rparen`);
+         var eq7 = katex.renderToString(`\\rightarrow \\lparen${num1[0]}\\tan${num7[0]} ${num2[1]}\\cot${num7[0]}\\rparen^{2}`);
+         var eq8 = katex.renderToString(`= \\lparen${num1[0]}\\tan${num7[0]} ${num2[1]}\\cot${num7[0]}\\rparen^{2}`);
+         $(".m-lhs-equations").html(`<ul class='list-group list-group-flush'><li class="list-group-item">${eq2}</li><li class="list-group-item">${eq3_1}<span class='m-highlight'>${eq3_2}</span>${eq3_3}<span class='m-highlight'>${eq3_4}</span>${eq3_5}</li><li class="list-group-item">${eq4}</li><li class="list-group-item">${eq5}</li><li class="list-group-item">${eq6}</li><li class="list-group-item">${eq7}</li></ul>`);
+         $(".m-rhs-equations").html(`<ul class='list-group list-group-flush'><li class="list-group-item">${eq8}</li><li class="list-group-item">${eq8}</li><li class="list-group-item">${eq8}</li><li class="list-group-item">${eq8}</li><li class="list-group-item">${eq8}</li><li class="list-group-item">${eq8}</li></ul>`);
+         $(".m-reload").unbind('click').click(function () {
+            train1(level);
+         })
+      }
+
+      function train2() {
+         var num1 = getRandomNumber(-10, 10);
+         var num2 = getRandomNumber(-10, -1);
+         var num3 = num1 * num1;
+         var num4 = num2 * num2;
+         var num8 = eval(-num3);
+         var num5 = 2 * num1 * num2;
+         var num6 = num5 - (num8 + num4);
+         var num7 = eval(-num4);
+         num1 = parseNumber(num1);
+         num2 = parseNumber(num2);
+         num3 = parseNumber(num3);
+         num4 = parseNumber(num4);
+         num5 = parseNumber(num5);
+         num6 = parseNumber(num6);
+         num7 = parseNumber(num7);
+         num8 = parseNumber(num8)
+         // Method - 1
+         var eq1 = katex.renderToString(`Q: ${num3[0]}\\tan^{${2}}\\theta ${num4[1]}\\sin^{${2}}\\theta ${num6[2]} = \\lparen ${num1[0]}\\cos\\theta ${num2[1]}\\sec\\theta \\rparen^{${2}}`);
+         var eq2 = katex.renderToString(`L.H.S = ${num3[0]}\\tan^{${2}}\\theta ${num4[1]}\\sin^{${2}}\\theta ${num6[2]}`);
+         var eq3_1 = katex.renderToString(`L.H.S = ${num3[0]}\\lparen   `);
+         var eq3_2 = katex.renderToString(`\\sec^{${2}}\\theta - 1`);
+         var eq3_3 = katex.renderToString(`\\rparen${num4[1]}\\lparen`);
+         var eq3_4 = katex.renderToString(`1 - \\cos^{${2}}\\theta`);
+         var eq3_5 = katex.renderToString(`\\rparen${num6[2]}`);
+         var eq4 = katex.renderToString(`L.H.S = ${num3[0]}\\sec^{${2}}\\theta ${num8[2]} ${num4[2]} ${num7[1]}\\cos^{${2}}\\theta ${num6[2]}`);
+         var eq5 = katex.renderToString(`L.H.S = ${num3[0]}\\cos^{${2}}\\theta ${num7[1]}\\sec^{${2}}\\theta ${num5[2]}`);
+         var eq6 = katex.renderToString(`L.H.S = \\lparen${num1[0]}\\cos\\theta\\rparen^{2} + \\lparen${num2[0]}\\sec\\theta\\rparen^{2} + \\lparen2 \\times ${num1[0]}\\cos\\theta \\times ${num2[0]}sec\\theta\\rparen`);
+         var eq7 = katex.renderToString(`L.H.S = \\lparen${num1[0]}\\cos\\theta ${num2[1]}\\sec \\theta\\rparen^{2}`);
          var eq8 = katex.renderToString(`L.H.S = R.H.S`);
          $(".m-card").html(`<div class='m-question'>${eq1}</div><hr>${eq2}<br>${eq3_1}<span class='m-highlight'>${eq3_2}</span>${eq3_3}<span class='m-highlight'>${eq3_4}</span>${eq3_5}<br>${eq4}<br>${eq5}<br>${eq6}<br>${eq7}<br>${eq8}`);
          $(".m-reload").unbind('click').click(function () {
-            train1();
+            train2();
+         })
+      }
+
+      function train3() {
+         var num1 = getRandomNumber(-10, 10);
+         var num2 = getRandomNumber(-10, 10);
+         var num3 = num1 * num1;
+         var num4 = num2 * num2;
+         var num7 = eval(-num3);
+         var num8 = eval(-num4)
+         var num5 = 2 * num1 * num2;
+         var num6 = num5 - (num7 + num8);
+         num1 = parseNumber(num1);
+         num2 = parseNumber(num2);
+         num3 = parseNumber(num3);
+         num4 = parseNumber(num4);
+         num5 = parseNumber(num5);
+         num6 = parseNumber(num6);
+         num7 = parseNumber(num7);
+         num8 = parseNumber(num8);
+         // Method - 1
+         var eq1 = katex.renderToString(`Q: ${num3[0]}\\tan^{${2}}\\theta ${num8[1]}\\sin^{${2}}\\theta ${num6[2]} = \\lparen ${num1[0]}\\cos\\theta ${num2[1]}\\sec\\theta \\rparen^{${2}}`);
+         var eq2 = katex.renderToString(`L.H.S = ${num3[0]}\\tan^{${2}}\\theta ${num8[1]}\\sin^{${2}}\\theta ${num6[2]}`);
+         var eq3_1 = katex.renderToString(`L.H.S = ${num3[0]}\\lparen   `);
+         var eq3_2 = katex.renderToString(`\\sec^{${2}}\\theta - 1`);
+         var eq3_3 = katex.renderToString(`\\rparen${num8[1]}\\lparen`);
+         var eq3_4 = katex.renderToString(`1 - \\cos^{${2}}\\theta`);
+         var eq3_5 = katex.renderToString(`\\rparen${num6[2]}`);
+         var eq4 = katex.renderToString(`L.H.S = ${num3[0]}\\sec^{${2}}\\theta ${num7[2]} ${num8[2]} ${num4[1]}\\cos^{${2}}\\theta ${num6[2]}`);
+         var eq5 = katex.renderToString(`L.H.S = ${num3[0]}\\cos^{${2}}\\theta ${num4[1]}\\sec^{${2}}\\theta ${num5[2]}`);
+         var eq6 = katex.renderToString(`L.H.S = \\lparen${num1[0]}\\cos\\theta\\rparen^{2} + \\lparen${num2[0]}\\sec\\theta\\rparen^{2} + \\lparen2 \\times ${num1[0]}\\cos\\theta \\times ${num2[0]}sec\\theta\\rparen`);
+         var eq7 = katex.renderToString(`L.H.S = \\lparen${num1[0]}\\cos\\theta ${num2[1]}\\sec \\theta\\rparen^{2}`);
+         var eq8 = katex.renderToString(`L.H.S = R.H.S`);
+         $(".m-card").html(`<div class='m-question'>${eq1}</div><hr>${eq2}<br>${eq3_1}<span class='m-highlight'>${eq3_2}</span>${eq3_3}<span class='m-highlight'>${eq3_4}</span>${eq3_5}<br>${eq4}<br>${eq5}<br>${eq6}<br>${eq7}<br>${eq8}`);
+         $(".m-reload").unbind('click').click(function () {
+            train3();
          })
       }
 
@@ -233,6 +419,7 @@
          return Math.floor(Math.random() * (max - min) + min);
       }
 
+      // format => [first string, second string, constant with sign, constant, sign]
       function parseNumber(xInt) {
          // format => [first string, second string, constant with sign, constant, sign]
          if (xInt == 0) {
@@ -250,6 +437,20 @@
                return [xInt, '- ' + eval(-(xInt)), '- ' + eval(-(xInt)), xInt, '-'];
             }
          }
+      }
+
+      function getRandom(arr, n) {
+         var result = new Array(n),
+            len = arr.length,
+            taken = new Array(len);
+         if (n > len)
+            throw new RangeError("getRandom: more elements taken than available");
+         while (n--) {
+            var x = Math.floor(Math.random() * len);
+            result[n] = arr[x in taken ? taken[x] : x];
+            taken[x] = --len in taken ? taken[len] : len;
+         }
+         return result;
       }
 
    </script>
