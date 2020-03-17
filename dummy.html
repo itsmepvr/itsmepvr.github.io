@@ -170,7 +170,7 @@
                </ul>
                <ul class="navbar-nav mr-5">
                   <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                     <a class="nav-link dropdown-toggle dropdown-level" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Level 1</a>
                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#" data-level='1'>Level 1</a>
@@ -233,10 +233,11 @@
          var windowHeight = $(window).height();
          var windowWidth = $(window).width();
          $('body').css({ "height": windowHeight + "px" });
-         var level = 3;
+         var level = 1;
          $(".dropdown-item").click(function(){
             level = $(this).attr('data-level');
             train1(level);
+            $(".dropdown-level").html("Level "+level);
          });
          train1(level);
          resizeCard();
