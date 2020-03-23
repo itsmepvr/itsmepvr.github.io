@@ -8,24 +8,33 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="icon" href="http://nestoranalytics.com/images/logo-big.png" type="image/png" sizes="16x16">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://getbootstrap.com/docs/4.2/dist/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
    <link href="https://fonts.googleapis.com/css?family=Sen&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/itsmepvr/dummyRanger/_math-main-v1.0.css"> 
-   <meta name="theme-color" content="#fafafa">
+   <meta name="theme-color" contenlist-group-item li-activet="#fafafa">
 </head>
 
 <body>
    <div class='n-mainBody'>
       <div class='m-panelOne m-panel'>
-         <div class='m-logo p-1'>Cognitive Math Lab</div>
       </div>
       <div class='m-panelTwo m-panel'>
          <div class='m-card'>
-            <div class='m-question p-2'>This is the question long enough to handle</div>
-            <div class='m-answer'>
+            <div class='m-heading bg-dark text-center'>
+               <a tabindex='0' class="m-popOverParent m-level btn btn-dark btn-sm" data-container="body"
+                  data-toggle="popover" data-placement="bottom" data-content=""
+                  data-popover-content='#m-level-popover'>Level 1</a>
+               <div tabindex='0' class="m-popOverParent m-topic btn btn-dark btn-sm flex-grow-1" data-container="body"
+                  data-toggle="popover" data-placement="bottom" data-content=""
+                  data-popover-content='#m-topic-popover'>Trigonometry</div>
+               <div tabindex='0' class="m-popOverParent m-state btn btn-dark btn-sm" data-container="body"
+                  data-toggle="popover" data-placement="bottom" data-content=""
+                  data-popover-content='#m-state-popover'>Auto</div>
+            </div>
+            <div class='m-question p-2 bg-info text-white'></div>
+            <div class='m-answer text-center flex-grow-1'>
                <table class='table m-table'>
                   <thead>
                      <th colspan=2 scope='col' class='m-thead m-thead-lhs m-lhs m-box'>
@@ -37,35 +46,62 @@
                            class='float-right m-collapse m-rhs-collapse'></div>
                      </th>
                   </thead>
-                  <tbody>
+                  <tbody class='text-left'>
                      <tr>
                         <th class='m-lhs' scope='row'>-></th>
                         <td class='m-tbody m-tbody-lhs m-lhs m-box'>
-                           <div class='m-eq'>dasdsad</div>
-                           <div class='m-exp'>dsdsada</div>
+                           <div class='m-eq'></div>
+                           <div class='m-exp'></div>
                         </td>
                         <th class='m-rhs' scope='row'>-></th>
-                        <td class='m-tbody m-tbody-rhs m-rhs m-box'>dfdfsdf</td>
+                        <td class='m-tbody m-tbody-rhs m-rhs m-box'></td>
                      </tr>
                      <tr>
                         <th class='m-lhs' scope='row'>-></th>
-                        <td class='m-tbody m-tbody-lhs m-lhs m-box'>dfdfsdf</td>
+                        <td class='m-tbody m-tbody-lhs m-lhs m-box'></td>
                         <th class='m-rhs' scope='row'>-></th>
-                        <td class='m-tbody m-tbody-rhs m-rhs m-box'>dfdfsdf</td>
+                        <td class='m-tbody m-tbody-rhs m-rhs m-box'></td>
                      </tr>
                   </tbody>
                </table>
+               <div class='btn btn-success btn-lg m-1 m-nextStep'>Next Step</div>
+            </div>
+            <div class='m-footer bg-dark'>
+               <div class='btn btn-dark btn-sm m-prev float-left disabled'>Prev</div>
+               <div class='btn btn-dark btn-sm m-reload flex-grow-1'>Reload</div>
+               <div class='btn btn-dark btn-sm m-next float-right disabled'>Next</div>
             </div>
          </div>
       </div>
-      <div class='m-panelThree m-panel'>
-         <div class='btn btn-primary btn-sm btn-prev float-left'>Prev</div>
-         <div class='btn btn-primary btn-sm btn-reload'>Reload</div>
-         <div class='btn btn-primary btn-sm btn-next float-right'>Next</div>
-      </div>
    </div>
-
-   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+   <div id='m-topic-popover' class='m-popover' style='display: none;'>
+      <ul class="list-group list-group-flush">
+         <li class="list-group-item li-topic li-active">Trigonometry</li>
+         <li class="list-group-item li-topic">Algebra</li>
+         <li class="list-group-item li-topic">Geometry</li>
+      </ul>
+   </div>
+   <div id='m-level-popover' class='m-popover' style='display: none;'>
+      <ul class="list-group list-group-flush">
+         <li class="list-group-item li-level li-active" data-val='1'>Level 1</li>
+         <li class="list-group-item li-level" data-val='2'>Level 2</li>
+         <li class="list-group-item li-level" data-val='3'>Level 3</li>
+         <li class="list-group-item li-level" data-val='4'>Level 4</li>
+         <li class="list-group-item li-level" data-val='5'>Level 5</li>
+      </ul>
+   </div>
+   <div id='m-state-popover' class='m-popover' style='display: none;'>
+      <ul class="list-group list-group-flush">
+         <li class="list-group-item li-state li-active" data-val='0'>Manual</li>
+         <li class="list-group-item li-state li-active" data-val='1'>Manual-Button</li>
+         <li class="list-group-item li-state" data-val='2'>Auto - 2(sec)</li>
+         <li class="list-group-item li-state" data-val='4'>Auto - 4(sec)</li>
+         <li class="list-group-item li-state" data-val='6'>Auto - 6(sec)</li>
+         <li class="list-group-item li-state" data-val='8'>Auto - 8(sec)</li>
+         <li class="list-group-item li-state" data-val='10'>Auto - 10(sec)</li>
+      </ul>
+   </div>
+   <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.6.1/math.min.js'></script>
