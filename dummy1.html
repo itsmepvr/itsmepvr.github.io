@@ -22,16 +22,19 @@
       </div>
       <div class='m-panelTwo m-panel'>
          <div class='m-card'>
-            <div class='m-heading bg-dark text-center'>
-               <a tabindex='0' class="m-popOverParent m-level btn btn-dark btn-sm" data-container="body"
-                  data-toggle="popover" data-placement="bottom" data-content=""
-                  data-popover-content='#m-level-popover'>Level 1</a>
-               <div tabindex='0' class="m-popOverParent m-topic btn btn-dark btn-sm flex-grow-1" data-container="body"
-                  data-toggle="popover" data-placement="bottom" data-content=""
-                  data-popover-content='#m-topic-popover'>Trigonometry</div>
-               <div tabindex='0' class="m-popOverParent m-state btn btn-dark btn-sm" data-container="body"
-                  data-toggle="popover" data-placement="bottom" data-content=""
-                  data-popover-content='#m-state-popover'>Auto</div>
+            <div class="m-preloader">
+               <div class="spinner-grow text-primary" role="status">
+                  <span class="sr-only"></span>
+               </div>
+            </div>
+            <div class='m-heading text-center'>
+               <div tabindex='0' class="m-popOverParent m-level btn btn-sm" data-container="body" data-toggle="popover"
+                  data-placement="bottom" data-content="" data-popover-content='#m-level-popover'>Level 1</div>
+               <div tabindex='0' class="m-popOverParent m-topic btn btn-sm flex-grow-1" data-container="body"
+                  data-toggle="popover" data-placement="bottom" data-content="" data-popover-content='#m-topic-popover'>
+                  Trigonometry</div>
+               <div tabindex='0' class="m-popOverParent m-state btn btn-sm" data-container="body" data-toggle="popover"
+                  data-placement="bottom" data-content="" data-popover-content='#m-state-popover'>Auto</div>
             </div>
             <div class='m-question p-2 bg-info text-white'></div>
             <div class='m-answer text-center flex-grow-1'>
@@ -66,10 +69,10 @@
                </table>
                <div class='btn btn-success btn-lg m-1 m-nextStep'>Next Step</div>
             </div>
-            <div class='m-footer bg-dark'>
-               <div class='btn btn-dark btn-sm m-prev float-left disabled'>Prev</div>
-               <div class='btn btn-dark btn-sm m-reload flex-grow-1'>Reload</div>
-               <div class='btn btn-dark btn-sm m-next float-right disabled'>Next</div>
+            <div class='m-footer'>
+               <div class='btn btn-sm m-prev float-left disabled'>Prev</div>
+               <div class='btn btn-sm m-reload flex-grow-1'>Reload</div>
+               <div class='btn btn-sm m-next float-right disabled'>Next</div>
             </div>
          </div>
       </div>
@@ -92,13 +95,13 @@
    </div>
    <div id='m-state-popover' class='m-popover' style='display: none;'>
       <ul class="list-group list-group-flush">
-         <li class="list-group-item li-state li-active" data-val='0'>Manual</li>
-         <li class="list-group-item li-state li-active" data-val='1'>Manual-Button</li>
-         <li class="list-group-item li-state" data-val='2'>Auto - 2(sec)</li>
-         <li class="list-group-item li-state" data-val='4'>Auto - 4(sec)</li>
-         <li class="list-group-item li-state" data-val='6'>Auto - 6(sec)</li>
-         <li class="list-group-item li-state" data-val='8'>Auto - 8(sec)</li>
-         <li class="list-group-item li-state" data-val='10'>Auto - 10(sec)</li>
+         <li class="list-group-item li-state li-active" data-val='0'>All Steps</li>
+         <li class="list-group-item li-state li-active" data-val='1'>Manual Step</li>
+         <li class="list-group-item li-state" data-val='2'>Auto-Step(2sec)</li>
+         <li class="list-group-item li-state" data-val='4'>Auto-Step(4sec)</li>
+         <li class="list-group-item li-state" data-val='6'>Auto-Step(6sec)</li>
+         <li class="list-group-item li-state" data-val='8'>Auto-Step(8sec)</li>
+         <li class="list-group-item li-state" data-val='10'>Auto-Step(10sec)</li>
       </ul>
    </div>
    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
