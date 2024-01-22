@@ -1,491 +1,321 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en">
 
 <head>
-
-    <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <title>itsmePVR - Welcome</title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- mobile specific metas
-    ================================================== -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/vendor.css">
-    <link rel="stylesheet" href="css/main.css">
-
-    <!-- script
-    ================================================== -->
-    <script src="js/modernizr.js"></script>
-    <script src="js/pace.min.js"></script>
-
-    <!-- favicons
-    ================================================== -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Venkata Ramana Reddy, Pulugari</title>
 </head>
 
-<body id="top">
+<body class="bg-gradient-to-b from-gray-800 to-black h-screen flex items-center justify-center">
 
-    <!-- header
-    ================================================== -->
-    <header class="s-header">
+    <canvas id="canvas" class="absolute top-0 left-0"></canvas>
 
-        <div class="header-logo">
-            <a class="site-logo" href="index.html"><img src="images/logo.png" alt="Homepage"></a>
-        </div>
+    <div
+        class="bg-opacity-10 bg-white p-8 rounded-lg md:w-8/12 w-99vw md:h-auto h-full overflow-auto text-white text-center z-10">
 
-        <nav class="header-nav-wrap">
-            <ul class="header-nav">
-                <li class="current"><a class="smoothscroll"  href="#home" title="home">Home</a></li>
-                <li><a class="smoothscroll"  href="#about" title="about">About</a></li>
-                <li><a class="smoothscroll"  href="#works" title="works">Works</a></li>
-                <li><a class="smoothscroll"  href="#contact" title="contact">Contact</a></li>
+        <h1 class="text-2xl font-bold mb-2">Venkata Ramana Reddy, Pulugari</h1>
+        <p class="text-lg text-gray-300 mb-4">Full Stack Developer</p>
+
+        <div class="text-left text-gray-200">
+            <ul class="list-outside hover:list-inside">
+                <li class="mb-2">🚀 Self-taught coding wizard from India 🇮🇳, now sprinkling magic in the USA 🇺🇸
+                </li>
+                <li class="mb-2">🎓 Currently MS(Computer Science) at Binghamton University, NY (Class of 2024)</li>
+                <li class="mb-2">💼 Former R&D sorcerer at Nestor Analytics and code conjurer at Infobelt Inc</li>
+                <li class="mb-2">🛠️ Crafted Anki Addons, DevInitiate, Groove Graphics, and more. Not just code, it's
+                    pure sorcery! ✨
+                </li>
+                <li class="mb-2">💖 Fluent in JavaScript, React, Canvas – weaving spells on the web. Python and Shell
+                    Script are my
+                    enchanted scrolls for automation.</li>
+                <li class="mb-2">🔮 Currently learning and mastering the magical realms of Rust and AWS! 🦀☁️</li>
             </ul>
-        </nav>
-
-        <a class="header-menu-toggle" href="#0"><span>Menu</span></a>
-
-    </header> <!-- end s-header -->
-
-
-   <!-- home
-   ================================================== -->
-   <section id="home" class="s-home page-hero target-section" data-parallax="scroll" data-image-src="images/hero-bg.jpg" data-natural-width=3000 data-natural-height=2000 data-position-y=center>
-
-        <div class="overlay"></div>
-        <div class="shadow-overlay"></div>
-
-        <div class="home-content">
-
-            <div class="row home-content__main">
-
-                <h3>Hello There</h3>
-
-                <span class='nameheader'>
-                    I am Venkata Ramana<br>
-                    Developer & Engineer from Hyderabad
-                </span>
-
-                <div class="home-content__buttons">
-                    <a href="#works" class="smoothscroll btn btn--stroke">
-                        Personal Projects
-                    </a>
-                    <a href="#about" class="smoothscroll btn btn--stroke">
-                        More About Me
-                    </a>
-                </div>
-
-                <div class="home-content__scroll">
-                    <a href="#about" class="scroll-link smoothscroll">
-                        <span>Scroll Down</span>
-                    </a>
-                </div>
-
-            </div>
-
-        </div> <!-- end home-content -->
-
-        <ul class="home-social">
-            <li>
-                <a href="https://www.linkedin.com/in/venkataramana-reddy-pulugari" target='_blank'><i class="im im-linkedin" aria-hidden="true"></i><span>Linkedin</span></a>
-            </li>
-            <li>
-                <a href="https://github.com/itsmepvr" target='_blank'><i class="im im-github" aria-hidden="true"></i><span>Github</span></a>
-            </li>
-            <li>
-                <a href="https://www.facebook.com/venkataramana.pulugari" target='_blank'><i class="im im-facebook" aria-hidden="true"></i><span>Facebook</span></a>
-            </li>
-            <li>
-                <a href="#"><i class="im im-twitter" aria-hidden="true" target='_blank'></i><span>Twiiter</span></a>
-            </li>
-            <li>
-                <a href="https://www.instagram.com/itsmepvr" target='_blank'><i class="im im-instagram" aria-hidden="true"></i><span>Instagram</span></a>
-            </li>
-        </ul> 
-        <!-- end home-social -->
-
-    </section> <!-- end s-home -->
-
-
-    <!-- about
-    ================================================== -->
-    <section id="about" class="s-about target-section">
-        
-        <div class="row narrow section-intro has-bottom-sep">
-            <div class="col-full text-center">
-                <h3>About</h3>
-                <h1>More About Me</h1>
-                <p class="lead">Passionate, Artist, Dancer, SciFi freak</p>
-            </div>
-        </div>
-
-        <div class="row about-content">
-
-            <div class="col text-center tab-full left">  
-                <h3>I've Got Some skills.</h3>
-            </div>
-
-            <div class="col-six tab-full left">
-                <ul class="skill-bars">
-                    <li>
-                    <div class="progress percent95"><span>95%</span></div>
-                    <strong>HTML5</strong>
-                    </li>
-                    <li>
-                    <div class="progress percent90"><span>90%</span></div>
-                    <strong>CSS3</strong>
-                    </li>
-                    <li>
-                    <div class="progress percent90"><span>90%</span></div>
-                    <strong>Javascript</strong>
-                    </li>
-                    <li>
-                    <div class="progress percent70"><span>70%</span></div>
-                    <strong>PHP</strong>
-                    </li>
-                    <li>
-                    <div class="progress percent65"><span>65%</span></div>
-                    <strong>Python</strong>
-                    </li>      
-                </ul>
-            </div>
-
-            <div class="col-six tab-full right">
-                <ul class="skill-bars"> 
-                    <li>
-                    <div class="progress percent65"><span>65%</span></div>
-                    <strong>MySQL</strong>
-                    </li>
-                    <li>
-                    <div class="progress percent50"><span>50%</span></div>
-                    <strong>AWS</strong>
-                    </li>      
-                    <li>
-                    <div class="progress percent50"><span>50%</span></div>
-                    <strong>Photoshop</strong>
-                    </li>
-                    <li>
-                    <div class="progress percent40"><span>40%</span></div>
-                    <strong>VFX Compoition</strong>
-                    </li>      
-                </ul>
-            </div>
-
-        </div> <!-- end about-content -->
-
-        <div class="row about-content about-content--timeline">
-
-            <div class="col-full text-center">
-                <h3>My Work Experience.</h3>
-            </div>
-
-            <div class="col-six tab-full left">
-                <div class="timeline">
-
-                    <div class="timeline__block">
-                        <div class="timeline__bullet"></div>
-                        <div class="timeline__header">
-                            <p class="timeline__timeframe">April 2017 - Present</p>
-                            <h3>Nestor Analytics</h3>
-                            <h5>R & D Engineer</h5>
-                        </div>
-                        <div class="timeline__desc">
-                            <ul>
-                                <li>Developing the code for web applications on frontend and backend.</li>
-                                <li>Debugging errors and problems related to core software.</li>
-                                <li>Idealize teaching techniques for digital education using virtual flash cards.</li>
-                                <li>Managing interns on the developing part.</li>
-                            </ul>
-                        </div>
-                    </div> <!-- end timeline__block -->
-
-                </div> <!-- end timeline -->
-            </div> <!-- end left -->
-
-            <div class="col-six tab-full right">
-                <div class="timeline">
-
-                    <div class="timeline__block">
-                        <div class="timeline__bullet"></div>
-                        <div class="timeline__header">
-                            <p class="timeline__timeframe">November 2016 - May 2017</p>
-                            <h3>Nestor Analytics</h3>
-                            <h5>Technical Research Analyst</h5>
-                        </div>
-                        <div class="timeline__desc">
-                            <ul>
-                                <li>Gather data related to company product and consumers.</li>
-                                <li>Analyse data using statistical software.</li>
-                                <li>Working on front end design for web applications.</li>
-                            </ul>
-                        </div>
-                    </div> <!-- end timeline__block -->
-
-                </div> <!-- end timeline -->
-            </div> <!-- end right -->
-
-        </div> <!-- end about-content timeline -->
-
-    </section> <!-- end about -->
-    
-
-    <!-- works
-    ================================================== -->
-    <section id="works" class="s-works target-section">
-
-        <div class="row narrow section-intro has-bottom-sep">
-            <div class="col-full">
-                <h3>Portfolio</h3>
-                <h1>See Some of My Personal Projects.</h1>
-                
-                <div class='col-full'>
-                    <div class='project-header'>All</div>
-                    <div class='project-header'>Javascript</div>
-                    <div class='project-header'>Python</div>
-                </div>   
-                <hr>
-
-                <div id='myprojects' class='row'>
-                    <div class='col projects l_python'>
-                        Stick Notes Web App
-                        <a href='https://github.com/itsmepvr/StickyNotes_WebApp' target='_blank'><span><hr>Sticky Notes web application coded in Python and Django. Users can add sticky notes to cloud database and can access from anywhere by loggin in.<br>
-                            <b>Open</b></span></a>
-                    </div>
-                	<div class='col projects l_python'>
-                        Face Recognition Desktop App
-                        <a href='https://github.com/itsmepvr/faceDetection' target='_blank'><span><hr>Face Recognition desktop application using webcam/videoFile<br>
-                            <b>Open</b></span></a>
-                    </div>
-                    <div class='col projects l_python'>
-                        Desktop Login Alert to Mobile
-                        <a href='https://github.com/itsmepvr/simple-login-alert' target='_blank'><span><hr>A simple login alert system for desktop with alert message send to mobile.<br>
-                            <b>Open</b></span></a>
-                    </div>
-                    <div class='col projects l_python'>
-                        Wiki Audio Assistant
-                        <a href='https://github.com/itsmepvr/wiki-audio-assistant/tree/master' target='_blank'><span><hr>Search and get result speakout from Wikipedia.<br><b>Open</b></span></a>
-                    </div>
-                    <div class='col projects l_js'>
-                        Justify Multiple Images
-                        <a href='projects/justify-multiple-images/index.html' target='_blank'><span><hr>Justify multipe images in a div without any overflow.<br><b>Open</b></span></a>
-                    </div>
-                    <div class='col projects l_js'>
-                        Ping Pong Game
-                        <a href='projects/ping-pong-game/index.html' target='_blank'><span><hr>A 2 player Ping Pong Ball game using javascript.<br><b>Open</b></span></a>
-                    </div>
-                    <div class='col projects l_js'>
-                        Pathway Generator
-                        <a href='projects/path-generator/index.html' target='_blank'><span><hr>Creates random path between 2 points in the grid.<br><b>Open</b></span></a>
-                    </div>
-                    <div class='col projects l_js'>
-                        Tracking Cursor Position
-                        <a href='projects/track-cursor-position/index.html' target='_blank'><span><hr>Track your cursor position in the window and get coordinates.<br><b>Open</b></span></a>
-                    </div>
-                    <div class='col projects l_js'>
-                        Image Grid Effect
-                        <a href='projects/image-grid-effect/index.html' target='_blank'><span><hr>Adds grid effect to your image with customizable grid option.<br><b>Open</b></span></a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-            </div>
-        </div> <!-- end masonry -->
-
-    </section> <!-- end works -->
-
-
-    <!-- s-stats
-    ================================================== -->
-    <section id="stats" class="s-stats">
-        <div class="row block-1-2 block-tab-1-2 block-mob-full stats">
-
-            <div class="col-block stats__col ">
-                <div class="stats__count">
-                    2
-                </div>
-                <h4>Awards Received</h4>
-            </div>
-
-            <div class="col-block stats__col stats__col--highlight">
-                <div class="stats__count">
-                    26
-                </div>
-                <h4>Projects Completed</h4>
-            </div>
-
-        </div>
-    </section> <!-- end s-stats -->
-
-
-    <!-- s-stats
-    ================================================== -->
-    <section id="contact" class="s-contact target-section">
-
-        <div class="overlay"></div>
-
-        <div class="row narrow section-intro">
-            <div class="col-full">
-                <h3>Contact</h3>
-                <h1>Say Hello.</h1>
-                
-            </div>
-        </div>
-
-        <div class="row contact__main">
-            <div class="col-four">
-                <h4 class="h06">Phone</h4>
-                <p>Phone: (+91)-9966350753
-                </p>
-            </div>
-
-            <div class="col-four">
-                <h4 class="h06">Email</h4>
-                <p>pvrreddy155@gmail.com
-                </p>
-            </div>
-
-            <div class="col-four">
-                <h4 class="h06">Address</h4>
-                <p>
-                    Mehdipatnam<br>
-                    Hyderabad-500028
-                </p>
-            </div>
 
         </div>
 
-    </section> <!-- end s-contact -->
+        <div class="mt-9 flex justify-between">
+            <a type="button" target="_blank" href="https://github.com/itsmepvr/" data-te-ripple-init
+                data-te-ripple-color="light"
+                class="mb-2 flex rounded px-5 py-2 text-xs md:px-6 md:py-2.5 md:text-sm font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
+                style="background-color: #333;">
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-3 w-3 md:h-3.5 md:w-3.5" fill="currentColor"
+                    viewBox="0 0 24 24">
+                    <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+
+                Github
+            </a>
 
 
-    <!-- footer
-    ================================================== -->
-    <footer>
-        <div class="row">
-            <div class="col-full">
+            <a type="button" target="_blank" href="https://linkedin.com/in/itsmepvr/" data-te-ripple-init
+                data-te-ripple-color="light"
+                class="mb-2 flex rounded px-5 py-2 text-xs md:px-6 md:py-2.5 md:text-sm font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
+                style="background-color: #0077b5;">
 
-                <div class="footer-logo">
-                    <a class="footer-site-logo" href="#0"><img src="images/logo.png" alt="Homepage"></a>
-                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-3 w-3 md:h-3.5 md:w-3.5" fill="currentColor"
+                    viewBox="0 0 24 24">
+                    <path
+                        d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" />
+                </svg>
 
-                <ul class="footer-social">
-                    <li><a href="https://www.linkedin.com/in/venkataramana-reddy-pulugari" target='_blank'>
-                        <i class="im im-linkedin" aria-hidden="true"></i>
-                        <span>Linkedin</span>
-                    </a></li>
-                    <li><a href="https://github.com/itsmepvr" target='_blank'>
-                        <i class="im im-github" aria-hidden="true"></i>
-                        <span>Github</span>
-                    </a></li>
-                    <li><a href="https://www.facebook.com/venkataramana.pulugari" target='_blank'>
-                        <i class="im im-facebook" aria-hidden="true"></i>
-                        <span>Facebook</span>
-                    </a></li>
-                    <li><a href="#0">
-                        <i class="im im-twitter" aria-hidden="true" target='_blank'></i>
-                        <span>Twitter</span>
-                    </a></li>
-                    <li><a href="https://www.instagram.com/itsmepvr" target='_blank'>
-                        <i class="im im-instagram" aria-hidden="true"></i>
-                        <span>Instagram</span>
-                    </a></li>
-                </ul>
-                    
-            </div>
+                LinkedIn
+            </a>
+
+
+            <!-- Resume button -->
+            <a type="button" target="_blank"
+                href="https://drive.google.com/file/d/1a9Ds3TTd-d-c3CBVILrgNQCtBK_khxDD/view?usp=drive_link"
+                data-te-ripple-init data-te-ripple-color="light"
+                class="mb-2 flex rounded px-5 py-2 text-xs md:px-6 md:py-2.5 md:text-sm font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg"
+                style="background-color: #4CAF50;">
+
+                <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-3 w-3 md:h-3.5 md:w-3.5" fill="currentColor"
+                    viewBox="0 0 24 24">
+                    <path
+                        d="M19.54 0c1.356 0 2.46 1.104 2.46 2.472v21.528l-2.58-2.28-1.452-1.344-1.536-1.428.636 2.22h-13.608c-1.356 0-2.46-1.104-2.46-2.472v-16.224c0-1.368 1.104-2.472 2.46-2.472h16.08zm-4.632 15.672c2.652-.084 3.672-1.824 3.672-1.824 0-3.864-1.728-6.996-1.728-6.996-1.728-1.296-3.372-1.26-3.372-1.26l-.168.192c2.04.624 2.988 1.524 2.988 1.524-1.248-.684-2.472-1.02-3.612-1.152-.864-.096-1.692-.072-2.424.024l-.204.024c-.42.036-1.44.192-2.724.756-.444.204-.708.348-.708.348s.996-.948 3.156-1.572l-.12-.144s-1.644-.036-3.372 1.26c0 0-1.728 3.132-1.728 6.996 0 0 1.008 1.74 3.66 1.824 0 0 .444-.54.804-.996-1.524-.456-2.1-1.416-2.1-1.416l.336.204.048.036.047.027.014.006.047.027c.3.168.6.3.876.408.492.192 1.08.384 1.764.516.9.168 1.956.228 3.108.012.564-.096 1.14-.264 1.74-.516.42-.156.888-.384 1.38-.708 0 0-.6.984-2.172 1.428.36.456.792.972.792.972zm-5.58-5.604c-.684 0-1.224.6-1.224 1.332 0 .732.552 1.332 1.224 1.332.684 0 1.224-.6 1.224-1.332.012-.732-.54-1.332-1.224-1.332zm4.38 0c-.684 0-1.224.6-1.224 1.332 0 .732.552 1.332 1.224 1.332.684 0 1.224-.6 1.224-1.332 0-.732-.54-1.332-1.224-1.332z" />
+                </svg>
+
+                Resume
+            </a>
         </div>
-
-        <div class="row footer-bottom">
-
-            <div class="col-twelve">
-                <div class="copyright">
-                    <span>© Copyright itsmepvr 2018</span> 	
-                </div>
-
-                <div class="go-top">
-                <a class="smoothscroll" title="Back to Top" href="#top"><i class="im im-arrow-up" aria-hidden="true"></i></a>
-                </div>
-            </div>
-
-        </div> <!-- end footer-bottom -->
-
-    </footer> <!-- end footer -->
-
-
-    <!-- photoswipe background
-    ================================================== -->
-    <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
-
-        <div class="pswp__bg"></div>
-        <div class="pswp__scroll-wrap">
-
-            <div class="pswp__container">
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-                <div class="pswp__item"></div>
-            </div>
-
-            <div class="pswp__ui pswp__ui--hidden">
-                <div class="pswp__top-bar">
-                    <div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button> <button class="pswp__button pswp__button--share" title=
-                    "Share"></button> <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button> <button class="pswp__button pswp__button--zoom" title=
-                    "Zoom in/out"></button>
-                    <div class="pswp__preloader">
-                        <div class="pswp__preloader__icn">
-                            <div class="pswp__preloader__cut">
-                                <div class="pswp__preloader__donut"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                    <div class="pswp__share-tooltip"></div>
-                </div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button> <button class="pswp__button pswp__button--arrow--right" title=
-                "Next (arrow right)"></button>
-                <div class="pswp__caption">
-                    <div class="pswp__caption__center"></div>
-                </div>
-            </div>
-
-        </div>
-
-    </div><!-- end photoSwipe background -->
-
-    <div id="preloader">
-        <div id="loader"></div>
     </div>
 
-
-    <!-- Java Script
-    ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
     <script>
-       $(document).ready(function(){
-        $(".project-header").click(function(){
-            $(".project-header").css({"box-shadow":"none"});
-            $(this).css({"box-shadow": "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"});
-            get_l = $(this).html();
-            if(get_l == 'All'){
-                $(".projects").show(1000);
-            }else if(get_l == 'Javascript'){
-                $(".l_python").hide(500);
-                $(".l_js").show(500);
-            }else if(get_l == 'Python'){
-                $(".l_js").hide(500);
-                $(".l_python").show(500);
+
+        // canvas context
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+
+        // setting full width and height to canvas
+        const w = window.innerWidth * 0.01 * 100;
+        const h = (window.innerHeight * 0.01 * 100) - 2;
+        canvas.width = w;
+        canvas.height = h;
+        // constants
+        const gridSize = 20;
+        const snake = [{ x: 10, y: 10 }];
+        let xVelocity = 1;
+        let yVelocity = 0;
+        let tailLength = 30;
+
+        var blocks_used = [];
+
+        const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+        gradient.addColorStop(0, '#11244C'); // Dark gray
+        gradient.addColorStop(0.5, '#0D1B39');   // Slightly lighter gray
+        gradient.addColorStop(1, '#000');     // Black
+
+        function clearScreen() {
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        // Function to convert hex color to RGBA format
+        function hexToRGBA(hex, alpha) {
+            const r = parseInt(hex.slice(1, 3), 16);
+            const g = parseInt(hex.slice(3, 5), 16);
+            const b = parseInt(hex.slice(5, 7), 16);
+
+            return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+        }
+
+        class Snake {
+            constructor(ctx, gridSize, tileLength, headColor = 'red', tailColor = 'white') {
+                this.ctx = ctx;
+                this.gridSize = gridSize;
+                this.tailLength = tileLength;
+                this.xGrid = (w / gridSize) / 2;
+                this.yGrid = (h / gridSize) / 2;
+                this.xVelocity = 1;
+                this.yVelocity = 0;
+                this.headX = getRandomNumber(1, this.xGrid);
+                this.headY = getRandomNumber(1, this.xGrid);
+                this.snake = [{ x: this.headX, y: this.headY }];
+                this.directions = [];
+                this.current_direction = 'right';
+                this.headColor = headColor;
+                this.tailColor = tailColor;
+                this.opacity = 0.1;
             }
-        })
-       })
+
+            reload() {
+                this.xVelocity = 1;
+                this.yVelocity = 0;
+                this.headX = getRandomNumber(1, this.xGrid);
+                this.headY = getRandomNumber(1, this.xGrid);
+                this.snake = [{ x: this.headX, y: this.headY }];
+                this.directions = [];
+                this.cache_directions = [];
+                this.move();
+            }
+
+            drawSnake() {
+                this.ctx.fillStyle = hexToRGBA(this.headColor, this.opacity);
+                this.ctx.fillRect(this.snake[0].x * this.gridSize, this.snake[0].y * this.gridSize, this.gridSize - 2, this.gridSize - 2);
+
+                for (let i = 1; i < this.snake.length; i++) {
+                    let part = this.snake[i];
+                    this.ctx.fillStyle = hexToRGBA(this.tailColor, this.opacity);
+                    this.ctx.fillRect(part.x * this.gridSize, part.y * this.gridSize, this.gridSize - 2, this.gridSize - 2);
+                }
+            }
+
+            updateSnake() {
+                this.snake.unshift({ x: this.headX, y: this.headY });
+                if (this.snake.length > this.tailLength + 1) {
+                    this.snake.pop();
+                }
+            }
+
+            randomDirection() {
+
+                this.directions = ["up", "left", "right", "down"];
+                if (this.yVelocity == 1) this.update_directions('up');
+                if (this.yVelocity == -1) this.update_directions('down');
+                if (this.xVelocity == 1) this.update_directions('left');
+                if (this.xVelocity == -1) this.update_directions('right');
+
+                if (this.headX <= 0) this.update_directions('left');
+                if (this.headX >= (w / this.gridSize) - 1) this.update_directions('right');
+                if (this.headY <= 0) this.update_directions('up');
+                if (this.headY >= (h / this.gridSize) - 2) this.update_directions('down');
+
+                this.collision();
+
+                this.headX += this.xVelocity;
+                this.headY += this.yVelocity;
+
+            }
+
+            check_self_collision(x, y) {
+                let collision = false;
+                let head_x = this.headX + x;
+                let head_y = this.headY + y;
+                for (let i = 0; i < this.snake.length; i++) {
+                    let part = this.snake[i];
+                    if (part.x === head_x && part.y === head_y) {
+                        collision = true;
+                        break;
+                    }
+                }
+                return collision;
+            }
+
+            collision() {
+                if (this.directions.length == 0) {
+                    this.reload();
+                }
+
+                let direction = this.getRandomElementWithProbabilities();
+
+                let x = 0, y = 0;
+                if (direction == 'left') {
+                    x -= 1;
+                    y = 0;
+                } else if (direction == 'right') {
+                    x += 1;
+                    y = 0;
+                }
+                if (direction == 'up') {
+                    y -= 1;
+                    x = 0;
+                } else if (direction == 'down') {
+                    y += 1;
+                    x = 0;
+                }
+
+                if (this.check_self_collision(x, y)) {
+                    this.update_directions(direction);
+                    this.collision();
+                } else {
+                    this.current_direction = direction;
+                    this.xVelocity = x;
+                    this.yVelocity = y;
+                }
+            }
+
+            getRandomElementWithProbabilities() {
+                var probabilities = {}
+                for (let i = 0; i < this.directions.length; i++) {
+                    if (this.directions[i] == this.current_direction) {
+                        probabilities[this.directions[i]] = 0.6;
+                    } else {
+                        probabilities[this.directions[i]] = 0.2;
+                    }
+                }
+
+                const rand = Math.random();
+
+                let cumulativeProbability = 0;
+
+                for (const [element, probability] of Object.entries(probabilities)) {
+                    cumulativeProbability += probability;
+
+                    if (rand < cumulativeProbability) {
+                        return element;
+                    }
+                }
+                return this.directions[Math.floor(Math.random() * this.directions.length)];
+            }
+
+
+            move() {
+                this.randomDirection();
+                this.updateSnake();
+                this.drawSnake();
+            }
+
+            update_directions(dir) {
+                let indexToRemove = this.directions.indexOf(dir);
+
+                if (indexToRemove !== -1) {
+                    this.directions.splice(indexToRemove, 1);
+                }
+            }
+        }
+
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        const distinctColorPairs = [
+            ['#607D8B', '#ECEFF1'], // Blue Gray
+            ['#FFC107', '#FFECB3'], // Amber
+            ['#4CAF50', '#E8F5E9'], // Green
+            ['#673AB7', '#EDE7F6'], // Deep Purple
+            ['#FF5722', '#FFEB3B']  // Deep Orange
+        ];
+
+        let snake_1 = new Snake(ctx, gridSize, tailLength, 'red', 'white');
+        let snake_2 = new Snake(ctx, gridSize, tailLength, 'blue', 'orange');
+
+        let snakes = [];
+        const SNAKES_COUNT = 4;
+        for (let i = 0; i < SNAKES_COUNT; i++) {
+            let color = '';
+            if (i >= 5) color = distinctColorPairs[i - 5];
+            else color = distinctColorPairs[i];
+            snakes[i] = new Snake(ctx, gridSize, tailLength, color[0], color[1])
+        }
+
+        function gameLoop() {
+            clearScreen();
+            for (let i = 0; i < SNAKES_COUNT; i++) {
+                snakes[i].move();
+            }
+        }
+
+        clearScreen();
+
+        setTimeout(() => {
+            setInterval(gameLoop, 75);
+        }, 1000);
+
+
     </script>
 </body>
 
